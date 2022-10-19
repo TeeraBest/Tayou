@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TaYou_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_Data_Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Operation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Data_Log" Type="nvarchar(max)" />
+    <Property Name="Create_date" Type="datetime" />
+    <Property Name="Create_By" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Users">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BirthDay" Type="datetime" />
+    <Property Name="Create_Date" Type="datetime" />
+    <Property Name="Update_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tbl_UserTransaction">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="User_Guid" Type="uniqueidentifier" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataJson" Type="nvarchar(max)" />
+    <Property Name="Create_Date" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TaYou_db.dbo.View_Tbl_UserTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Tbl_UserTransaction">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="User_Guid" Type="uniqueidentifier" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataJson" Type="nvarchar(max)" />
+    <Property Name="Create_Date" Type="datetime" />
+    <Property Name="rn" Type="bigint" />
+  </EntityType>
+  <EntityContainer Name="TaYou_dbModelStoreContainer">
+    <EntitySet Name="TBL_Data_Log" EntityType="Self.TBL_Data_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Users" EntityType="Self.Tbl_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_UserTransaction" EntityType="Self.Tbl_UserTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_Tbl_UserTransaction" EntityType="Self.View_Tbl_UserTransaction" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Tbl_UserTransaction].[Guid] AS [Guid], 
+    [View_Tbl_UserTransaction].[User_Guid] AS [User_Guid], 
+    [View_Tbl_UserTransaction].[Type] AS [Type], 
+    [View_Tbl_UserTransaction].[DataJson] AS [DataJson], 
+    [View_Tbl_UserTransaction].[Create_Date] AS [Create_Date], 
+    [View_Tbl_UserTransaction].[rn] AS [rn]
+    FROM [dbo].[View_Tbl_UserTransaction] AS [View_Tbl_UserTransaction]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

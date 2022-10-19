@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="main">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>{{ 'login' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-logo">
+    <img src="assets/img/logo1.jpg" alt="sample logo">
+  </div>
+
+  <form #loginForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" color="main">{{ 'username' | translate }}</ion-label>
+        <ion-input [(ngModel)]="loginForm.username" value="" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+                   required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
+          {{ 'required.username' | translate }}
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="main">{{ 'password' | translate }}</ion-label>
+        <ion-input [(ngModel)]="loginForm.password" value="" name="password" type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" >
+        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+          {{ 'required.password' | translate }}
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onLogin(loginForm)" color="main" type="submit" expand="block">{{ 'login' | translate }}</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onSignup()" color="light" expand="block">{{ 'signup' | translate }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>

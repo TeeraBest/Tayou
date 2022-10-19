@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TaYou_dbModelStoreContainer" CdmEntityContainer="TaYou_dbEntities">
+    <EntitySetMapping Name="Tbl_Users">
+      <EntityTypeMapping TypeName="TaYou_dbModel.Tbl_Users">
+        <MappingFragment StoreEntitySet="Tbl_Users">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Data_Log">
+      <EntityTypeMapping TypeName="TaYou_dbModel.TBL_Data_Log">
+        <MappingFragment StoreEntitySet="TBL_Data_Log">
+          <ScalarProperty Name="Create_By" ColumnName="Create_By" />
+          <ScalarProperty Name="Create_date" ColumnName="Create_date" />
+          <ScalarProperty Name="Data_Log" ColumnName="Data_Log" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_UserTransaction">
+      <EntityTypeMapping TypeName="TaYou_dbModel.Tbl_UserTransaction">
+        <MappingFragment StoreEntitySet="Tbl_UserTransaction">
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="DataJson" ColumnName="DataJson" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="User_Guid" ColumnName="User_Guid" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Tbl_UserTransaction">
+      <EntityTypeMapping TypeName="TaYou_dbModel.View_Tbl_UserTransaction">
+        <MappingFragment StoreEntitySet="View_Tbl_UserTransaction">
+          <ScalarProperty Name="rn" ColumnName="rn" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="DataJson" ColumnName="DataJson" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="User_Guid" ColumnName="User_Guid" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Token">
+      <EntityTypeMapping TypeName="TaYou_dbModel.Tbl_Token">
+        <MappingFragment StoreEntitySet="Tbl_Token">
+          <ScalarProperty Name="User_Guid" ColumnName="User_Guid" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Token_Operation">
+      <EntityTypeMapping TypeName="TaYou_dbModel.Tbl_Token_Operation">
+        <MappingFragment StoreEntitySet="Tbl_Token_Operation">
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

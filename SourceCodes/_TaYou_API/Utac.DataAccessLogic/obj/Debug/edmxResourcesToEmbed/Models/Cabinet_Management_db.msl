@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Cabinet_Management_dbModelStoreContainer" CdmEntityContainer="Cabinet_Management_dbEntities">
+    <EntitySetMapping Name="Tbl_Cabinet_Master">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.Tbl_Cabinet_Master">
+        <MappingFragment StoreEntitySet="Tbl_Cabinet_Master">
+          <ScalarProperty Name="Cabinet_Operation_Guid" ColumnName="Cabinet_Operation_Guid" />
+          <ScalarProperty Name="Cabinet_Type_Guid" ColumnName="Cabinet_Type_Guid" />
+          <ScalarProperty Name="Cabinet_Next_Guid" ColumnName="Cabinet_Next_Guid" />
+          <ScalarProperty Name="Cabinet_No" ColumnName="Cabinet_No" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Cabinet_Layer_Master">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.Tbl_Cabinet_Layer_Master">
+        <MappingFragment StoreEntitySet="Tbl_Cabinet_Layer_Master">
+          <ScalarProperty Name="Max_Block_Number" ColumnName="Max_Block_Number" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Layer_Name" ColumnName="Layer_Name" />
+          <ScalarProperty Name="Cabinet_Master_Guid" ColumnName="Cabinet_Master_Guid" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Cabinet_Block_Master">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.Tbl_Cabinet_Block_Master">
+        <MappingFragment StoreEntitySet="Tbl_Cabinet_Block_Master">
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Block_index" ColumnName="Block_index" />
+          <ScalarProperty Name="Block_Name" ColumnName="Block_Name" />
+          <ScalarProperty Name="Cabinet_Layer_Guid" ColumnName="Cabinet_Layer_Guid" />
+          <ScalarProperty Name="Cabinet_Master_Guid" ColumnName="Cabinet_Master_Guid" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Data_Log">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.TBL_Data_Log">
+        <MappingFragment StoreEntitySet="TBL_Data_Log">
+          <ScalarProperty Name="Create_By" ColumnName="Create_By" />
+          <ScalarProperty Name="Create_date" ColumnName="Create_date" />
+          <ScalarProperty Name="Data_Log" ColumnName="Data_Log" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_CabinetTypeMaster">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.Tbl_CabinetTypeMaster">
+        <MappingFragment StoreEntitySet="Tbl_CabinetTypeMaster">
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Operation_Master">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.Tbl_Operation_Master">
+        <MappingFragment StoreEntitySet="Tbl_Operation_Master">
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Operation_Name" ColumnName="Operation_Name" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Cabinet_Setup">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.View_Cabinet_Setup">
+        <MappingFragment StoreEntitySet="View_Cabinet_Setup">
+          <ScalarProperty Name="Max_Block_Number" ColumnName="Max_Block_Number" />
+          <ScalarProperty Name="Cabinet_Next_Guid" ColumnName="Cabinet_Next_Guid" />
+          <ScalarProperty Name="Created_Date_transactionfrom" ColumnName="Created_Date_transactionfrom" />
+          <ScalarProperty Name="Created_By_transaction" ColumnName="Created_By_transaction" />
+          <ScalarProperty Name="En_No_transaction" ColumnName="En_No_transaction" />
+          <ScalarProperty Name="Strip_No" ColumnName="Strip_No" />
+          <ScalarProperty Name="Setup_LF" ColumnName="Setup_LF" />
+          <ScalarProperty Name="Qty_LF" ColumnName="Qty_LF" />
+          <ScalarProperty Name="Stock_LF" ColumnName="Stock_LF" />
+          <ScalarProperty Name="Lot_no" ColumnName="Lot_no" />
+          <ScalarProperty Name="Magazine_No" ColumnName="Magazine_No" />
+          <ScalarProperty Name="En_No" ColumnName="En_No" />
+          <ScalarProperty Name="Block_index" ColumnName="Block_index" />
+          <ScalarProperty Name="Block_Name" ColumnName="Block_Name" />
+          <ScalarProperty Name="Layer_Name" ColumnName="Layer_Name" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+          <ScalarProperty Name="Operation_Name" ColumnName="Operation_Name" />
+          <ScalarProperty Name="Operation" ColumnName="Operation" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Cabinet_Type_Guid" ColumnName="Cabinet_Type_Guid" />
+          <ScalarProperty Name="Cabinet_Operation_Guid" ColumnName="Cabinet_Operation_Guid" />
+          <ScalarProperty Name="Cabinet_No" ColumnName="Cabinet_No" />
+          <ScalarProperty Name="Cabinet_Block_Guid" ColumnName="Cabinet_Block_Guid" />
+          <ScalarProperty Name="Cabinet_Layer_Guid" ColumnName="Cabinet_Layer_Guid" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Keep_Strip_Current">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.View_Keep_Strip_Current">
+        <MappingFragment StoreEntitySet="View_Keep_Strip_Current">
+          <ScalarProperty Name="Created_Date_transactionfrom" ColumnName="Created_Date_transactionfrom" />
+          <ScalarProperty Name="Created_By_transaction" ColumnName="Created_By_transaction" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Cabinet_Guid_transaction" ColumnName="Cabinet_Guid_transaction" />
+          <ScalarProperty Name="Block_Guid_transaction" ColumnName="Block_Guid_transaction" />
+          <ScalarProperty Name="Layer_Guid_transaction" ColumnName="Layer_Guid_transaction" />
+          <ScalarProperty Name="En_No_transaction" ColumnName="En_No_transaction" />
+          <ScalarProperty Name="Strip_No" ColumnName="Strip_No" />
+          <ScalarProperty Name="Setup_LF" ColumnName="Setup_LF" />
+          <ScalarProperty Name="Qty_LF" ColumnName="Qty_LF" />
+          <ScalarProperty Name="Stock_LF" ColumnName="Stock_LF" />
+          <ScalarProperty Name="Lot_no" ColumnName="Lot_no" />
+          <ScalarProperty Name="Magazine_No" ColumnName="Magazine_No" />
+          <ScalarProperty Name="En_No" ColumnName="En_No" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Keep_Strip_Master">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.Tbl_Keep_Strip_Master">
+        <MappingFragment StoreEntitySet="Tbl_Keep_Strip_Master">
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Strip_No" ColumnName="Strip_No" />
+          <ScalarProperty Name="Setup_LF" ColumnName="Setup_LF" />
+          <ScalarProperty Name="Qty_LF" ColumnName="Qty_LF" />
+          <ScalarProperty Name="Stock_LF" ColumnName="Stock_LF" />
+          <ScalarProperty Name="Lot_no" ColumnName="Lot_no" />
+          <ScalarProperty Name="Magazine_No" ColumnName="Magazine_No" />
+          <ScalarProperty Name="En_No" ColumnName="En_No" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Keep_Strip_Transaction">
+      <EntityTypeMapping TypeName="Cabinet_Management_dbModel.Tbl_Keep_Strip_Transaction">
+        <MappingFragment StoreEntitySet="Tbl_Keep_Strip_Transaction">
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Block_Guid" ColumnName="Block_Guid" />
+          <ScalarProperty Name="Layer_Guid" ColumnName="Layer_Guid" />
+          <ScalarProperty Name="Cabinet_Guid" ColumnName="Cabinet_Guid" />
+          <ScalarProperty Name="En_No" ColumnName="En_No" />
+          <ScalarProperty Name="Keep_Strip_Master_Guid" ColumnName="Keep_Strip_Master_Guid" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

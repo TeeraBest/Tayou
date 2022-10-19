@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OpticalLeak_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Machine_List">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="MachineName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Created_by" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_by" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Raw_Data">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Machine_Guid" Type="uniqueidentifier" />
+    <Property Name="Lot_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tray_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image_Path" Type="nvarchar" MaxLength="50" />
+    <Property Name="Raw_data" Type="nvarchar(max)" />
+    <Property Name="Raw_Path" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Created_by" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_by" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_ResultParameterDetail">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ResultParameterHeader_Guid" Type="uniqueidentifier" />
+    <Property Name="ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Leakage" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="Stiff" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Created_by" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_by" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_ResultParameterHeader">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RawData_Guid" Type="uniqueidentifier" />
+    <Property Name="Duration" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pressure" Type="nvarchar" MaxLength="50" />
+    <Property Name="Volume" Type="nvarchar" MaxLength="50" />
+    <Property Name="Crit_Leak" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_date" Type="datetime" />
+    <Property Name="Updated_date" Type="datetime" />
+    <Property Name="Created_by" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_by" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="OpticalLeak_dbModelStoreContainer">
+    <EntitySet Name="Tbl_Machine_List" EntityType="Self.Tbl_Machine_List" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Raw_Data" EntityType="Self.Tbl_Raw_Data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ResultParameterDetail" EntityType="Self.Tbl_ResultParameterDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ResultParameterHeader" EntityType="Self.Tbl_ResultParameterHeader" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

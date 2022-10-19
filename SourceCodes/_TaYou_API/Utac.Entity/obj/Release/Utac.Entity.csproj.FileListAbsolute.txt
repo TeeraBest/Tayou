@@ -1,0 +1,6 @@
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\bin\Release\Utac.Entity.dll
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\bin\Release\Utac.Entity.pdb
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\obj\Release\Utac.Entity.csprojAssemblyReference.cache
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\obj\Release\Utac.Entity.csproj.CoreCompileInputs.cache
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\obj\Release\Utac.Entity.dll
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\obj\Release\Utac.Entity.pdb

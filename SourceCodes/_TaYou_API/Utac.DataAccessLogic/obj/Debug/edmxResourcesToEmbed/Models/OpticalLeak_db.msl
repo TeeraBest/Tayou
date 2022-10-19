@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OpticalLeak_dbModelStoreContainer" CdmEntityContainer="OpticalLeak_dbEntities">
+    <EntitySetMapping Name="Tbl_Machine_List">
+      <EntityTypeMapping TypeName="OpticalLeak_dbModel.Tbl_Machine_List">
+        <MappingFragment StoreEntitySet="Tbl_Machine_List">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Raw_Data">
+      <EntityTypeMapping TypeName="OpticalLeak_dbModel.Tbl_Raw_Data">
+        <MappingFragment StoreEntitySet="Tbl_Raw_Data">
+          <ScalarProperty Name="Raw_Path" ColumnName="Raw_Path" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Machine_Guid" ColumnName="Machine_Guid" />
+          <ScalarProperty Name="Lot_no" ColumnName="Lot_no" />
+          <ScalarProperty Name="Tray_no" ColumnName="Tray_no" />
+          <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+          <ScalarProperty Name="Raw_data" ColumnName="Raw_data" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ResultParameterDetail">
+      <EntityTypeMapping TypeName="OpticalLeak_dbModel.Tbl_ResultParameterDetail">
+        <MappingFragment StoreEntitySet="Tbl_ResultParameterDetail">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="ResultParameterHeader_Guid" ColumnName="ResultParameterHeader_Guid" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Leakage" ColumnName="Leakage" />
+          <ScalarProperty Name="Stiff" ColumnName="Stiff" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ResultParameterHeader">
+      <EntityTypeMapping TypeName="OpticalLeak_dbModel.Tbl_ResultParameterHeader">
+        <MappingFragment StoreEntitySet="Tbl_ResultParameterHeader">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="RawData_Guid" ColumnName="RawData_Guid" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Crit_Leak" ColumnName="Crit_Leak" />
+          <ScalarProperty Name="Created_date" ColumnName="Created_date" />
+          <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
+          <ScalarProperty Name="Created_by" ColumnName="Created_by" />
+          <ScalarProperty Name="Updated_by" ColumnName="Updated_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

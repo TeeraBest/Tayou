@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Cabinet_Management_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Cabinet_Block_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Cabinet_Master_Guid" Type="uniqueidentifier" />
+    <Property Name="Cabinet_Layer_Guid" Type="uniqueidentifier" />
+    <Property Name="Block_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Block_index" Type="int" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Cabinet_Layer_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Cabinet_Master_Guid" Type="uniqueidentifier" />
+    <Property Name="Layer_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Max_Block_Number" Type="int" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Cabinet_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Cabinet_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cabinet_Next_Guid" Type="uniqueidentifier" />
+    <Property Name="Cabinet_Operation_Guid" Type="uniqueidentifier" />
+    <Property Name="Cabinet_Type_Guid" Type="uniqueidentifier" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_CabinetTypeMaster">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Type_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBL_Data_Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Operation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Data_Log" Type="nvarchar(max)" />
+    <Property Name="Create_date" Type="datetime" />
+    <Property Name="Create_By" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Keep_Strip_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="En_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Magazine_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lot_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="Stock_LF" Type="nvarchar" MaxLength="50" />
+    <Property Name="Qty_LF" Type="nvarchar" MaxLength="50" />
+    <Property Name="Setup_LF" Type="nvarchar" MaxLength="50" />
+    <Property Name="Strip_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Keep_Strip_Transaction">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Keep_Strip_Master_Guid" Type="uniqueidentifier" />
+    <Property Name="En_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cabinet_Guid" Type="uniqueidentifier" />
+    <Property Name="Layer_Guid" Type="uniqueidentifier" />
+    <Property Name="Block_Guid" Type="uniqueidentifier" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Operation_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Operation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Operation_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Cabinet_Management_db.dbo.View_Cabinet_Setup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Cabinet_Setup">
+    <Key>
+      <PropertyRef Name="Guid" />
+      <PropertyRef Name="Cabinet_Layer_Guid" />
+      <PropertyRef Name="Cabinet_Block_Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Cabinet_Layer_Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Cabinet_Block_Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Cabinet_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cabinet_Operation_Guid" Type="uniqueidentifier" />
+    <Property Name="Cabinet_Type_Guid" Type="uniqueidentifier" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Operation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Operation_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Type_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Layer_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Block_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Block_index" Type="int" />
+    <Property Name="En_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Magazine_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lot_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="Stock_LF" Type="nvarchar" MaxLength="50" />
+    <Property Name="Qty_LF" Type="nvarchar" MaxLength="50" />
+    <Property Name="Setup_LF" Type="nvarchar" MaxLength="50" />
+    <Property Name="Strip_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="En_No_transaction" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_By_transaction" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_Date_transactionfrom" Type="datetime" />
+    <Property Name="Cabinet_Next_Guid" Type="uniqueidentifier" />
+    <Property Name="Max_Block_Number" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Cabinet_Management_db.dbo.View_Keep_Strip_Current' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Keep_Strip_Current">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="En_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Magazine_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lot_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="Stock_LF" Type="nvarchar" MaxLength="50" />
+    <Property Name="Qty_LF" Type="nvarchar" MaxLength="50" />
+    <Property Name="Setup_LF" Type="nvarchar" MaxLength="50" />
+    <Property Name="Strip_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="En_No_transaction" Type="nvarchar" MaxLength="50" />
+    <Property Name="Layer_Guid_transaction" Type="uniqueidentifier" />
+    <Property Name="Block_Guid_transaction" Type="uniqueidentifier" />
+    <Property Name="Cabinet_Guid_transaction" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_By_transaction" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_Date_transactionfrom" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Tbl_Cabinet_Block_Master_Tbl_Cabinet_Layer_Master">
+    <End Role="Tbl_Cabinet_Layer_Master" Type="Self.Tbl_Cabinet_Layer_Master" Multiplicity="0..1" />
+    <End Role="Tbl_Cabinet_Block_Master" Type="Self.Tbl_Cabinet_Block_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Cabinet_Layer_Master">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Tbl_Cabinet_Block_Master">
+        <PropertyRef Name="Cabinet_Layer_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Cabinet_Layer_Master_Tbl_Cabinet_Master">
+    <End Role="Tbl_Cabinet_Master" Type="Self.Tbl_Cabinet_Master" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Cabinet_Layer_Master" Type="Self.Tbl_Cabinet_Layer_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Cabinet_Master">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Tbl_Cabinet_Layer_Master">
+        <PropertyRef Name="Cabinet_Master_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Cabinet_Management_dbModelStoreContainer">
+    <EntitySet Name="Tbl_Cabinet_Block_Master" EntityType="Self.Tbl_Cabinet_Block_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Cabinet_Layer_Master" EntityType="Self.Tbl_Cabinet_Layer_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Cabinet_Master" EntityType="Self.Tbl_Cabinet_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_CabinetTypeMaster" EntityType="Self.Tbl_CabinetTypeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_Data_Log" EntityType="Self.TBL_Data_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Keep_Strip_Master" EntityType="Self.Tbl_Keep_Strip_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Keep_Strip_Transaction" EntityType="Self.Tbl_Keep_Strip_Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Operation_Master" EntityType="Self.Tbl_Operation_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_Cabinet_Setup" EntityType="Self.View_Cabinet_Setup" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Cabinet_Setup].[Guid] AS [Guid], 
+    [View_Cabinet_Setup].[Cabinet_Layer_Guid] AS [Cabinet_Layer_Guid], 
+    [View_Cabinet_Setup].[Cabinet_Block_Guid] AS [Cabinet_Block_Guid], 
+    [View_Cabinet_Setup].[Cabinet_No] AS [Cabinet_No], 
+    [View_Cabinet_Setup].[Cabinet_Operation_Guid] AS [Cabinet_Operation_Guid], 
+    [View_Cabinet_Setup].[Cabinet_Type_Guid] AS [Cabinet_Type_Guid], 
+    [View_Cabinet_Setup].[Created_Date] AS [Created_Date], 
+    [View_Cabinet_Setup].[Updated_Date] AS [Updated_Date], 
+    [View_Cabinet_Setup].[Created_By] AS [Created_By], 
+    [View_Cabinet_Setup].[Updated_By] AS [Updated_By], 
+    [View_Cabinet_Setup].[Operation] AS [Operation], 
+    [View_Cabinet_Setup].[Operation_Name] AS [Operation_Name], 
+    [View_Cabinet_Setup].[Type_Name] AS [Type_Name], 
+    [View_Cabinet_Setup].[Layer_Name] AS [Layer_Name], 
+    [View_Cabinet_Setup].[Block_Name] AS [Block_Name], 
+    [View_Cabinet_Setup].[Block_index] AS [Block_index], 
+    [View_Cabinet_Setup].[En_No] AS [En_No], 
+    [View_Cabinet_Setup].[Magazine_No] AS [Magazine_No], 
+    [View_Cabinet_Setup].[Lot_no] AS [Lot_no], 
+    [View_Cabinet_Setup].[Stock_LF] AS [Stock_LF], 
+    [View_Cabinet_Setup].[Qty_LF] AS [Qty_LF], 
+    [View_Cabinet_Setup].[Setup_LF] AS [Setup_LF], 
+    [View_Cabinet_Setup].[Strip_No] AS [Strip_No], 
+    [View_Cabinet_Setup].[En_No_transaction] AS [En_No_transaction], 
+    [View_Cabinet_Setup].[Created_By_transaction] AS [Created_By_transaction], 
+    [View_Cabinet_Setup].[Created_Date_transactionfrom] AS [Created_Date_transactionfrom], 
+    [View_Cabinet_Setup].[Cabinet_Next_Guid] AS [Cabinet_Next_Guid], 
+    [View_Cabinet_Setup].[Max_Block_Number] AS [Max_Block_Number]
+    FROM [dbo].[View_Cabinet_Setup] AS [View_Cabinet_Setup]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Keep_Strip_Current" EntityType="Self.View_Keep_Strip_Current" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Keep_Strip_Current].[Guid] AS [Guid], 
+    [View_Keep_Strip_Current].[En_No] AS [En_No], 
+    [View_Keep_Strip_Current].[Magazine_No] AS [Magazine_No], 
+    [View_Keep_Strip_Current].[Lot_no] AS [Lot_no], 
+    [View_Keep_Strip_Current].[Stock_LF] AS [Stock_LF], 
+    [View_Keep_Strip_Current].[Qty_LF] AS [Qty_LF], 
+    [View_Keep_Strip_Current].[Setup_LF] AS [Setup_LF], 
+    [View_Keep_Strip_Current].[Strip_No] AS [Strip_No], 
+    [View_Keep_Strip_Current].[En_No_transaction] AS [En_No_transaction], 
+    [View_Keep_Strip_Current].[Layer_Guid_transaction] AS [Layer_Guid_transaction], 
+    [View_Keep_Strip_Current].[Block_Guid_transaction] AS [Block_Guid_transaction], 
+    [View_Keep_Strip_Current].[Cabinet_Guid_transaction] AS [Cabinet_Guid_transaction], 
+    [View_Keep_Strip_Current].[Created_Date] AS [Created_Date], 
+    [View_Keep_Strip_Current].[Updated_Date] AS [Updated_Date], 
+    [View_Keep_Strip_Current].[Created_By] AS [Created_By], 
+    [View_Keep_Strip_Current].[Updated_By] AS [Updated_By], 
+    [View_Keep_Strip_Current].[Created_By_transaction] AS [Created_By_transaction], 
+    [View_Keep_Strip_Current].[Created_Date_transactionfrom] AS [Created_Date_transactionfrom]
+    FROM [dbo].[View_Keep_Strip_Current] AS [View_Keep_Strip_Current]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Tbl_Cabinet_Block_Master_Tbl_Cabinet_Layer_Master" Association="Self.FK_Tbl_Cabinet_Block_Master_Tbl_Cabinet_Layer_Master">
+      <End Role="Tbl_Cabinet_Layer_Master" EntitySet="Tbl_Cabinet_Layer_Master" />
+      <End Role="Tbl_Cabinet_Block_Master" EntitySet="Tbl_Cabinet_Block_Master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Cabinet_Layer_Master_Tbl_Cabinet_Master" Association="Self.FK_Tbl_Cabinet_Layer_Master_Tbl_Cabinet_Master">
+      <End Role="Tbl_Cabinet_Master" EntitySet="Tbl_Cabinet_Master" />
+      <End Role="Tbl_Cabinet_Layer_Master" EntitySet="Tbl_Cabinet_Layer_Master" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

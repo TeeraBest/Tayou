@@ -1,0 +1,11 @@
+D:\Work\TFS\CMS\CMS_Master\Utac.Entity\bin\Debug\Utac.Entity.dll
+D:\Work\TFS\CMS\CMS_Master\Utac.Entity\bin\Debug\Utac.Entity.pdb
+D:\Work\TFS\CMS\CMS_Master\Utac.Entity\obj\Debug\Utac.Entity.csproj.CoreCompileInputs.cache
+D:\Work\TFS\CMS\CMS_Master\Utac.Entity\obj\Debug\Utac.Entity.dll
+D:\Work\TFS\CMS\CMS_Master\Utac.Entity\obj\Debug\Utac.Entity.pdb
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\bin\Debug\Utac.Entity.dll
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\bin\Debug\Utac.Entity.pdb
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\obj\Debug\Utac.Entity.csproj.CoreCompileInputs.cache
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\obj\Debug\Utac.Entity.dll
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\obj\Debug\Utac.Entity.pdb
+E:\Work\Projects\TaYou\SourceCodes\TaYou_API\Utac.Entity\obj\Debug\Utac.Entity.csprojAssemblyReference.cache

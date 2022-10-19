@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TaYou_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_Data_Log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Operation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Data_Log" Type="nvarchar(max)" />
+          <Property Name="Create_date" Type="datetime" />
+          <Property Name="Create_By" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_Token">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Operation" Type="uniqueidentifier" />
+          <Property Name="User_Guid" Type="uniqueidentifier" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_Token_Operation">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Operation" Type="nchar" MaxLength="10" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_Users">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BirthDay" Type="datetime" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tbl_UserTransaction">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="User_Guid" Type="uniqueidentifier" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataJson" Type="nvarchar(max)" />
+          <Property Name="Create_Date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TaYou_db.dbo.View_Tbl_UserTransaction' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Tbl_UserTransaction">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="User_Guid" Type="uniqueidentifier" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataJson" Type="nvarchar(max)" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="rn" Type="bigint" />
+        </EntityType>
+        <EntityContainer Name="TaYou_dbModelStoreContainer">
+          <EntitySet Name="TBL_Data_Log" EntityType="Self.TBL_Data_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Token" EntityType="Self.Tbl_Token" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Token_Operation" EntityType="Self.Tbl_Token_Operation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Users" EntityType="Self.Tbl_Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_UserTransaction" EntityType="Self.Tbl_UserTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_Tbl_UserTransaction" EntityType="Self.View_Tbl_UserTransaction" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Tbl_UserTransaction].[Guid] AS [Guid], 
+    [View_Tbl_UserTransaction].[User_Guid] AS [User_Guid], 
+    [View_Tbl_UserTransaction].[Type] AS [Type], 
+    [View_Tbl_UserTransaction].[DataJson] AS [DataJson], 
+    [View_Tbl_UserTransaction].[Create_Date] AS [Create_Date], 
+    [View_Tbl_UserTransaction].[rn] AS [rn]
+    FROM [dbo].[View_Tbl_UserTransaction] AS [View_Tbl_UserTransaction]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TaYou_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Users">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDay" Type="DateTime" Precision="3" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="TaYou_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Users" EntityType="Self.Tbl_Users" />
+          <EntitySet Name="TBL_Data_Log" EntityType="TaYou_dbModel.TBL_Data_Log" />
+          <EntitySet Name="Tbl_UserTransaction" EntityType="TaYou_dbModel.Tbl_UserTransaction" />
+          <EntitySet Name="View_Tbl_UserTransaction" EntityType="TaYou_dbModel.View_Tbl_UserTransaction" />
+          <EntitySet Name="Tbl_Token" EntityType="TaYou_dbModel.Tbl_Token" />
+          <EntitySet Name="Tbl_Token_Operation" EntityType="TaYou_dbModel.Tbl_Token_Operation" />
+        </EntityContainer>
+        <EntityType Name="TBL_Data_Log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Operation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Data_Log" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Create_date" Type="DateTime" Precision="3" />
+          <Property Name="Create_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Tbl_UserTransaction">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="User_Guid" Type="Guid" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="View_Tbl_UserTransaction">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="User_Guid" Type="Guid" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="rn" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Tbl_Token">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="Operation" Type="Guid" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <Property Name="User_Guid" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Tbl_Token_Operation">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Guid" Nullable="false" />
+          <Property Name="Operation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TaYou_dbModelStoreContainer" CdmEntityContainer="TaYou_dbEntities">
+          <EntitySetMapping Name="Tbl_Users">
+            <EntityTypeMapping TypeName="TaYou_dbModel.Tbl_Users">
+              <MappingFragment StoreEntitySet="Tbl_Users">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Data_Log">
+            <EntityTypeMapping TypeName="TaYou_dbModel.TBL_Data_Log">
+              <MappingFragment StoreEntitySet="TBL_Data_Log">
+                <ScalarProperty Name="Create_By" ColumnName="Create_By" />
+                <ScalarProperty Name="Create_date" ColumnName="Create_date" />
+                <ScalarProperty Name="Data_Log" ColumnName="Data_Log" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_UserTransaction">
+            <EntityTypeMapping TypeName="TaYou_dbModel.Tbl_UserTransaction">
+              <MappingFragment StoreEntitySet="Tbl_UserTransaction">
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="DataJson" ColumnName="DataJson" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="User_Guid" ColumnName="User_Guid" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Tbl_UserTransaction">
+            <EntityTypeMapping TypeName="TaYou_dbModel.View_Tbl_UserTransaction">
+              <MappingFragment StoreEntitySet="View_Tbl_UserTransaction">
+                <ScalarProperty Name="rn" ColumnName="rn" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="DataJson" ColumnName="DataJson" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="User_Guid" ColumnName="User_Guid" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Token">
+            <EntityTypeMapping TypeName="TaYou_dbModel.Tbl_Token">
+              <MappingFragment StoreEntitySet="Tbl_Token">
+                <ScalarProperty Name="User_Guid" ColumnName="User_Guid" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Token_Operation">
+            <EntityTypeMapping TypeName="TaYou_dbModel.Tbl_Token_Operation">
+              <MappingFragment StoreEntitySet="Tbl_Token_Operation">
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

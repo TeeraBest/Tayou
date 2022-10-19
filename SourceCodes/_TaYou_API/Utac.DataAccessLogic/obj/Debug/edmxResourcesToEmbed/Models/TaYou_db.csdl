@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TaYou_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_Users">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BirthDay" Type="DateTime" Precision="3" />
+    <Property Name="Create_Date" Type="DateTime" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="TaYou_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_Users" EntityType="Self.Tbl_Users" />
+    <EntitySet Name="TBL_Data_Log" EntityType="TaYou_dbModel.TBL_Data_Log" />
+    <EntitySet Name="Tbl_UserTransaction" EntityType="TaYou_dbModel.Tbl_UserTransaction" />
+    <EntitySet Name="View_Tbl_UserTransaction" EntityType="TaYou_dbModel.View_Tbl_UserTransaction" />
+  </EntityContainer>
+  <EntityType Name="TBL_Data_Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Operation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Data_Log" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Create_date" Type="DateTime" Precision="3" />
+    <Property Name="Create_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tbl_UserTransaction">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="User_Guid" Type="Guid" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Create_Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="View_Tbl_UserTransaction">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="User_Guid" Type="Guid" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Create_Date" Type="DateTime" Precision="3" />
+    <Property Name="rn" Type="Int64" />
+  </EntityType>
+</Schema>

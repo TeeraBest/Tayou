@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Cabinet_Management_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_Cabinet_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cabinet_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Cabinet_Layer_Master" Relationship="Cabinet_Management_dbModel.FK_Tbl_Cabinet_Layer_Master_Tbl_Cabinet_Master" FromRole="Tbl_Cabinet_Master" ToRole="Tbl_Cabinet_Layer_Master" />
+    <Property Name="Cabinet_Next_Guid" Type="Guid" />
+    <Property Name="Cabinet_Type_Guid" Type="Guid" />
+    <Property Name="Cabinet_Operation_Guid" Type="Guid" />
+  </EntityType>
+  <EntityContainer Name="Cabinet_Management_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_Cabinet_Master" EntityType="Self.Tbl_Cabinet_Master" />
+    <EntitySet Name="Tbl_Cabinet_Layer_Master" EntityType="Cabinet_Management_dbModel.Tbl_Cabinet_Layer_Master" />
+    <AssociationSet Name="FK_Tbl_Cabinet_Layer_Master_Tbl_Cabinet_Master" Association="Cabinet_Management_dbModel.FK_Tbl_Cabinet_Layer_Master_Tbl_Cabinet_Master">
+      <End Role="Tbl_Cabinet_Master" EntitySet="Tbl_Cabinet_Master" />
+      <End Role="Tbl_Cabinet_Layer_Master" EntitySet="Tbl_Cabinet_Layer_Master" />
+    </AssociationSet>
+    <EntitySet Name="Tbl_Cabinet_Block_Master" EntityType="Cabinet_Management_dbModel.Tbl_Cabinet_Block_Master" />
+    <AssociationSet Name="FK_Tbl_Cabinet_Block_Master_Tbl_Cabinet_Layer_Master" Association="Cabinet_Management_dbModel.FK_Tbl_Cabinet_Block_Master_Tbl_Cabinet_Layer_Master">
+      <End Role="Tbl_Cabinet_Layer_Master" EntitySet="Tbl_Cabinet_Layer_Master" />
+      <End Role="Tbl_Cabinet_Block_Master" EntitySet="Tbl_Cabinet_Block_Master" />
+    </AssociationSet>
+    <EntitySet Name="TBL_Data_Log" EntityType="Cabinet_Management_dbModel.TBL_Data_Log" />
+    <EntitySet Name="Tbl_CabinetTypeMaster" EntityType="Cabinet_Management_dbModel.Tbl_CabinetTypeMaster" />
+    <EntitySet Name="Tbl_Operation_Master" EntityType="Cabinet_Management_dbModel.Tbl_Operation_Master" />
+    <EntitySet Name="View_Cabinet_Setup" EntityType="Cabinet_Management_dbModel.View_Cabinet_Setup" />
+    <EntitySet Name="View_Keep_Strip_Current" EntityType="Cabinet_Management_dbModel.View_Keep_Strip_Current" />
+    <EntitySet Name="Tbl_Keep_Strip_Master" EntityType="Cabinet_Management_dbModel.Tbl_Keep_Strip_Master" />
+    <EntitySet Name="Tbl_Keep_Strip_Transaction" EntityType="Cabinet_Management_dbModel.Tbl_Keep_Strip_Transaction" />
+  </EntityContainer>
+  <EntityType Name="Tbl_Cabinet_Layer_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Cabinet_Master_Guid" Type="Guid" />
+    <Property Name="Layer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Cabinet_Master" Relationship="Cabinet_Management_dbModel.FK_Tbl_Cabinet_Layer_Master_Tbl_Cabinet_Master" FromRole="Tbl_Cabinet_Layer_Master" ToRole="Tbl_Cabinet_Master" />
+    <Property Name="Max_Block_Number" Type="Int32" />
+    <NavigationProperty Name="Tbl_Cabinet_Block_Master" Relationship="Cabinet_Management_dbModel.FK_Tbl_Cabinet_Block_Master_Tbl_Cabinet_Layer_Master" FromRole="Tbl_Cabinet_Layer_Master" ToRole="Tbl_Cabinet_Block_Master" />
+  </EntityType>
+  <Association Name="FK_Tbl_Cabinet_Layer_Master_Tbl_Cabinet_Master">
+    <End Type="Cabinet_Management_dbModel.Tbl_Cabinet_Master" Role="Tbl_Cabinet_Master" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Cabinet_Management_dbModel.Tbl_Cabinet_Layer_Master" Role="Tbl_Cabinet_Layer_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Cabinet_Master">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Tbl_Cabinet_Layer_Master">
+        <PropertyRef Name="Cabinet_Master_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Tbl_Cabinet_Block_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Cabinet_Master_Guid" Type="Guid" />
+    <Property Name="Cabinet_Layer_Guid" Type="Guid" />
+    <Property Name="Block_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Block_index" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Cabinet_Layer_Master" Relationship="Cabinet_Management_dbModel.FK_Tbl_Cabinet_Block_Master_Tbl_Cabinet_Layer_Master" FromRole="Tbl_Cabinet_Block_Master" ToRole="Tbl_Cabinet_Layer_Master" />
+  </EntityType>
+  <Association Name="FK_Tbl_Cabinet_Block_Master_Tbl_Cabinet_Layer_Master">
+    <End Type="Cabinet_Management_dbModel.Tbl_Cabinet_Layer_Master" Role="Tbl_Cabinet_Layer_Master" Multiplicity="0..1" />
+    <End Type="Cabinet_Management_dbModel.Tbl_Cabinet_Block_Master" Role="Tbl_Cabinet_Block_Master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Cabinet_Layer_Master">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Tbl_Cabinet_Block_Master">
+        <PropertyRef Name="Cabinet_Layer_Guid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TBL_Data_Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Operation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Data_Log" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Create_date" Type="DateTime" Precision="3" />
+    <Property Name="Create_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tbl_CabinetTypeMaster">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Type_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tbl_Operation_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Operation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Operation_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="View_Cabinet_Setup">
+    <Key>
+      <PropertyRef Name="Guid" />
+      <PropertyRef Name="Cabinet_Layer_Guid" />
+      <PropertyRef Name="Cabinet_Block_Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Cabinet_Layer_Guid" Type="Guid" Nullable="false" />
+    <Property Name="Cabinet_Block_Guid" Type="Guid" Nullable="false" />
+    <Property Name="Cabinet_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cabinet_Operation_Guid" Type="Guid" />
+    <Property Name="Cabinet_Type_Guid" Type="Guid" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Operation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Operation_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Type_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Layer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Block_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Block_index" Type="Int32" />
+    <Property Name="En_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Magazine_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lot_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stock_LF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Qty_LF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Setup_LF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Strip_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="En_No_transaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created_By_transaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date_transactionfrom" Type="DateTime" Precision="3" />
+    <Property Name="Cabinet_Next_Guid" Type="Guid" />
+    <Property Name="Max_Block_Number" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_Keep_Strip_Current">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="En_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Magazine_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lot_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stock_LF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Qty_LF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Setup_LF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Strip_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="En_No_transaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Layer_Guid_transaction" Type="Guid" />
+    <Property Name="Block_Guid_transaction" Type="Guid" />
+    <Property Name="Cabinet_Guid_transaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created_By_transaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date_transactionfrom" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tbl_Keep_Strip_Master">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="En_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Magazine_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lot_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stock_LF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Qty_LF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Setup_LF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Strip_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tbl_Keep_Strip_Transaction">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Keep_Strip_Master_Guid" Type="Guid" />
+    <Property Name="En_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cabinet_Guid" Type="Guid" />
+    <Property Name="Layer_Guid" Type="Guid" />
+    <Property Name="Block_Guid" Type="Guid" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
